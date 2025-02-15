@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { Product } from "@/src/schemas";
 import { formatCurrency } from "@/src/utils";
+import AddproductButton from "./AddproductButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   const isOutOfStock = product.stock === 0;
@@ -15,6 +16,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             alt={`Imagen del producto ${product.name}`}
             width={300}
             height={300}
+            priority
             className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
           />
           {isOutOfStock && (
@@ -44,20 +46,9 @@ const ProductCard = ({ product }: { product: Product }) => {
             >
               {product.stock > 0
                 ? `${product.stock} unidades disponibles`
-                : "Sin stock"}
+                : "No hay unidades disponibles"}
             </span>
-            <button
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-white font-medium transition-colors
-              ${
-                isOutOfStock
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-violet-600 hover:bg-violet-700"
-              }`}
-              disabled={isOutOfStock}
-            >
-              <ShoppingCart size={18} />
-              Agregar
-            </button>
+            <AddproductButton product={product} isOutOfStock={isOutOfStock} />
           </div>
         </div>
       </div>

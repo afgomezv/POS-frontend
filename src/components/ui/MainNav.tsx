@@ -1,7 +1,7 @@
 import { CategoriesResponseSchema } from "@/src/schemas";
 import Logo from "./Logo";
 import Link from "next/link";
-import Shoppingbag from "../cart/Shoppingbag";
+import ShoppingBag from "../cart/ShoppingBag";
 
 async function getCategory() {
   const url = `${process.env.API_URL}/categories`;
@@ -34,7 +34,7 @@ export default async function MainNav() {
       </nav>
 
       <div>
-        <Shoppingbag />
+        <ShoppingBag />
       </div>
     </header>
   );
