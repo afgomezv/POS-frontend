@@ -4,7 +4,6 @@ import { FormEvent } from "react";
 export default function CouponForm() {
   const applyCoupon = useStore((state) => state.applyCoupon);
   const coupon = useStore((state) => state.coupon);
-  console.log(coupon);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

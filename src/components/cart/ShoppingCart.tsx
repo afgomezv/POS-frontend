@@ -5,6 +5,7 @@ import ShoppingCartItem from "./ShoppingCartItem";
 import { ShoppingBagIcon } from "lucide-react";
 import Amount from "./Amount";
 import CouponForm from "./CouponForm";
+import SubmitOrderForm from "./SubmitOrderForm";
 
 const ShoppingCart = () => {
   const contents = useStore((state) => state.contents);
@@ -33,6 +34,7 @@ const ShoppingCart = () => {
             <Amount label="Total a pagar" amount={total} />
           </dl>
           <CouponForm />
+          <SubmitOrderForm />
         </>
       ) : (
         <div className="flex flex-col items-center justify-center h-[calc(100vh-12rem)]">
