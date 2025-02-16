@@ -33,7 +33,15 @@ export default async function MainNav() {
         ))}
       </nav>
 
-      <div>
+      <div className="flex gap-2">
+        <Link
+          href={"/admin/sales"}
+          className="hover:text-violet-600 text-white"
+        >
+          <div className="hover:bg-gray-200 py-2 px-5 rounded-lg bg-violet-600">
+            Panel de Administración
+          </div>
+        </Link>
         <ShoppingBag />
       </div>
     </header>
