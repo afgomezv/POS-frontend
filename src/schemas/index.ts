@@ -6,7 +6,12 @@ export const ProductSchema = z.object({
   image: z.string(),
   price: z.coerce.number(),
   stock: z.number(),
-  //categoryId: z.number(),
+  categoryId: z.number(),
+});
+
+export const ProductResponseSchema = z.object({
+  products: z.array(ProductSchema),
+  total: z.number(),
 });
 
 export const CategorySchema = z.object({
@@ -86,3 +91,14 @@ export const SaleResponseSchema = z.object({
 export const SalesResponseSchema = z.array(SaleResponseSchema);
 
 export type Sale = z.infer<typeof SaleResponseSchema>;
+
+export const ProductFormSchema = z.object({
+  name: z.string().min(1, { message: "El nombre del producto es obligatorio" }),
+  price: z.coerce
+    .number({ message: "El precio no es válido" })
+    .min(1, { message: "El precio debe ser mayor a 0" }),
+  stock: z.coerce
+    .number({ message: "El stock no es válido" })
+    .min(1, { message: "El stock debe ser mayor a 0" }),
+  categoryId: z.coerce.number({ message: "La categoria no es válida" }),
+});

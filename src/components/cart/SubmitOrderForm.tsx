@@ -35,7 +35,7 @@ const SubmitOrderForm = () => {
     <form action={dispatch}>
       <button
         type="submit"
-        className="mt-5 w-full text-white uppercase font-bold p-3 rounded-xl bg-violet-600 hover:bg-violet-700"
+        className="mt-5 w-full text-white text-lg capitalize  font-bold p-3 rounded-xl bg-violet-600 hover:bg-violet-700"
       >
         Confirmar compra
       </button>
