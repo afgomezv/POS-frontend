@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { Product } from "@/src/schemas";
-import { formatCurrency } from "@/src/utils";
+import { formatCurrency, getImagePath } from "@/src/utils";
 import AddproductButton from "./AddproductButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
@@ -12,7 +12,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
         <div className="overflow-hidden relative">
           <Image
-            src={`${process.env.IMAGE_URL}/img/${product.image}`}
+            src={getImagePath(product.image)}
             alt={`Imagen del producto ${product.name}`}
             width={300}
             height={300}

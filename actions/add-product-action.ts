@@ -14,6 +14,7 @@ export async function addProduct(
   const product = ProductFormSchema.safeParse({
     name: formData.get("name"),
     price: formData.get("price"),
+    image: formData.get("image"),
     stock: formData.get("stock"),
     categoryId: formData.get("categoryId"),
   });
@@ -35,6 +36,8 @@ export async function addProduct(
   });
 
   const json = await req.json();
+
+  console.log(json);
 
   if (!req.ok) {
     const errors = ErrorResponseSchema.parse(json);

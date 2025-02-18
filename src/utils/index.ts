@@ -25,3 +25,18 @@ export function isValidPage(value: number) {
 
   return true;
 }
+
+export function getImagePath(image: string) {
+  const cloudinaryBaseUrl = "https://res.cloudinary.com";
+  if (image.startsWith(cloudinaryBaseUrl)) {
+    return image;
+  } else {
+    if (process.env.API_URL) {
+      return `${process.env.IMAGE_URL}/img/${image}`;
+    } else {
+      return `${process.env.NEXT_PUBLIC_IMAGE_URL}/img/${image}`;
+    }
+  }
+}
+
+export const isAvailable = (stock: number) => stock > 0;
